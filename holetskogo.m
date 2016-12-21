@@ -3,6 +3,7 @@ function res = holetskogo()
         -32 -9 71 241 -129 79 83 144 98 30 -50; 83 -45 -195 -129 216 -93 -48 -36 -86 -84 83; -73 25 103 79 -93 218 -36 -2 -58 182 -213;
         57 8 41 83 -48 -36 236 62 152 -69 227; 66 10 27 144 -36 -2 62 245 44 -35 -113; -17 0 43 98 -86 -58 152 44 241 -25 -250;
         -47 16 92 30 -84 182 -69 -35 -25 244 210];
+    tic
     [matrix_len, b] = size(A);
     u = zeros(matrix_len, matrix_len);
     i = 1;
@@ -49,13 +50,14 @@ function res = holetskogo()
     
     result = solve_upper_triangle(u);
     
-    disp(result)
+    disp(transpose(result))
     
 %     disp('Determinator')
 %     disp(determinator)
 %     disp('Obernena')
 %     disp(obernenaQuad)
     res = result;
+    toc
 end
 
 

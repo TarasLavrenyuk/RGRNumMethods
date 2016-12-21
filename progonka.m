@@ -3,6 +3,7 @@ function res = progonka()
     0 0 0 0 -374 896 -353 0 0 0; 0 0 0 0 0 -238 -716 86 0 0; 0 0 0 0 0 0 -66 147 63 0; 0 0 0 0 0 0 0 109 458 -200; 0 0 0 0 0 0 0 0 626 721];
     B = [969; 718; 571; 27; -645; -203; -733; -939; 879; -398];
     [a, b] = size(A);
+    tic
     b = get_b_array(A);
     c = get_c_array(A);
     d = get_d_array(A);
@@ -44,8 +45,8 @@ function res = progonka()
         answers(i) = x;
         i = i - 1;
     end
-    
-    res = answers;
+    toc
+    res = transpose(answers);
 end
 
 function res = get_d_array(matrix)

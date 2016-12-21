@@ -3,11 +3,11 @@ def show_matrix(m):
         result_line = ''
         for elem in line:
             result = ''
-            current = format(elem, '.5f')
-            result += '    ' + current if current.startswith('-') else '     ' + current
-            result_line += result
+            current = '{: 10.5f}   '.format(elem)
+            # current = format(elem, '.5f')
+            # result += urrent if current.startswith('-') else '     ' + current
+            result_line += current
         print result_line
-
     print "\n"
 
 

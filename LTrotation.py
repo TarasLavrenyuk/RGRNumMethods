@@ -1,5 +1,11 @@
 from matrix import *
+import datetime
 import math
+from matrixoperation import show_matrix
+
+def show_result(matr):
+    for m in matr:
+        print '{: 10.5f}'.format(m[0])
 
 
 def get_matrix_dimension(matrix):
@@ -132,11 +138,11 @@ def LT_rotation(matrix):
             T_arrays.append(T)
             specify_numbers(T)
             print 'Matrix T' + str(i+1) + str(j+1)
-            print_matrix(T)
+            show_matrix(T)
             A = multiplicate_matrix(A, T)
             specify_numbers(A)
             print 'Matrix A(' + str(iteration) + '):'
-            print_matrix(A)
+            show_matrix(A)
             iteration += 1
             j += 1
             delimeter()
@@ -144,18 +150,23 @@ def LT_rotation(matrix):
     L = A
     specify_numbers(L)
     print 'Matrix L:'
-    print_matrix(L)
+    show_matrix(L)
     delimeter()
     print 'Y array: '
-    print get_Y_array(L, get_b1())
+    print get_Y_array(L, get_b3())
+    # print get_Y_array(L, get_b1())
     delimeter()
     print 'T transponovana:'
-    print_matrix(get_T_transponovana(T_arrays))
+    show_matrix(get_T_transponovana(T_arrays))
     delimeter()
     print 'Result'
-    print_matrix(multiplicate_matrix(get_T_transponovana(T_arrays), get_Y_array(L, get_b1())))
+    # show_result(multiplicate_matrix(get_T_transponovana(T_arrays), get_Y_array(L, get_b1())))
+    show_result(multiplicate_matrix(get_T_transponovana(T_arrays), get_Y_array(L, get_b3())))
     print 'Determinant A:'
     print get_det(L)
 
 
-LT_rotation(get_matrix1())
+start = datetime.datetime.now()
+LT_rotation(get_matrix3())
+# LT_rotation(get_matrix1())
+print datetime.datetime.now() - start

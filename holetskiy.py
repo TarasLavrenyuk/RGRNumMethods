@@ -1,3 +1,5 @@
+import datetime
+
 import matrixoperation as mr
 import math
 from matrix import get_matrix2
@@ -65,7 +67,10 @@ def solve_quad(m):
 
 matrix = get_matrix2()
 # mr.show_matrix(matrix)
+start = datetime.datetime.now()
 res, determinantor, obernenaQuad = solve_quad(matrix)
+print datetime.datetime.now() - start
 print 'Answer: ', res
 print 'Determinant: ', determinantor
-print 'Obernena matriza:', mr.show_matrix(obernenaQuad)
+print 'Obernena matriza:'
+print mr.show_matrix(obernenaQuad)

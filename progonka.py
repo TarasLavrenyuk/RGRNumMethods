@@ -1,15 +1,17 @@
+import datetime
+from matrixoperation import show_matrix
 from matrix import *
 
 
-def show_matrix(m):
-    for line in m:
-        result_line = ''
-        for elem in line:
-            result = ''
-            current = format(elem, '.2f')
-            result += '    ' + current if current.startswith('-') else '     ' + current
-            result_line += result
-        print result_line
+# def show_matrix(m):
+#     for line in m:
+#         result_line = ''
+#         for elem in line:
+#             result = ''
+#             current = format(elem, '.2f')
+#             result += '    ' + current if current.startswith('-') else '     ' + current
+#             result_line += result
+#         print result_line
 
 
 def get_d_array(matrix):
@@ -66,12 +68,6 @@ def progonka(m, bbb):
         if i == 0:
             tau = get_tau(0, 0, c[i]*1.0)
         else:
-            if i == len(m) - 1:
-                print '+++++++++++++++++++++'
-                print b[i - 1]
-                print sigma
-                print c[i]
-                print '+++++++++++++++++++++'
             tau = get_tau(b[i - 1]*1.0, sigma*1.0, c[i]*1.0)
         print 'Tau: ' + str(tau)
 
@@ -101,9 +97,13 @@ def progonka(m, bbb):
             x = sigmas[i]*1.0*answers[len(answers) - 1] + lamdas[i]*1.0
         answers.append(x)
         i -= 1
-    print answers
+
+    for ans in answers:
+        print ans
 
 
 m = get_matrix3()
 b = get_b3()
+start = datetime.datetime.now()
 progonka(m, b)
+print datetime.datetime.now() - start
